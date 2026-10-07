@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aplikasi Transaksi</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1>Aplikasi Transaksi</h1>
+    <p>Input, edit, cari, dan pantau transaksi.</p>
+  </header>
+
+  <main>
+    <p id="status" role="status"></p>
+
+    <section class="panel">
+      <h2>Ringkasan</h2>
+      <div class="cards">
+        <article class="card">Jumlah transaksi<strong id="count">0</strong></article>
+        <article class="card">Total kuantitas<strong id="quantityTotal">0</strong></article>
+        <article class="card">Total nilai<strong id="moneyTotal">Rp0</strong></article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Input / Edit Transaksi</h2>
+      <form id="transactionForm">
+        <label>ID transaksi
+          <input id="id" required placeholder="Contoh: TRX-001">
+        </label>
+        <label>Tanggal
+          <input id="date" type="date" required>
+        </label>
+        <label>Nama pelanggan
+          <input id="customer" required>
+        </label>
+        <label>Material / produk
+          <input id="material" required>
+        </label>
+        <label>Kategori
+          <select id="category" required>
+            <option value="">Pilih kategori</option>
+            <option>Pembelian</option>
+            <option>Penjualan</option>
+            <option>Pengiriman</option>
+            <option>Lainnya</option>
+          </select>
+        </label>
+        <label>Jumlah
+          <input id="quantity" type="number" min="0" step="any" required>
+        </label>
+        <label>Satuan
+          <input id="unit" required placeholder="kg, pcs, ton">
+        </label>
+        <label>Harga satuan (Rp)
+          <input id="unitPrice" type="number" min="0" step="1" required>
+        </label>
+        <label>Status
+          <select id="transactionStatus" required>
+            <option>Belum dibayar</option>
+            <option>Diproses</option>
+            <option>Selesai</option>
+            <option>Dibatalkan</option>
+          </select>
+        </label>
+        <label class="wide">Catatan
+          <textarea id="notes" placeholder="Catatan tambahan"></textarea>
+        </label>
+        <div class="form-actions wide">
+          <button type="submit">Simpan</button>
+          <button type="button" id="clearButton" class="secondary">Kosongkan</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Grafik nilai transaksi per tanggal</h2>
+      <div class="chart-container">
+        <canvas id="chart"></canvas>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Daftar Transaksi</h2>
+      <input id="search" class="search" placeholder="Cari ID, pelanggan, atau material">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Tanggal</th><th>Pelanggan</th><th>Material</th>
+              <th>Kategori</th><th>Jumlah</th><th>Satuan</th><th>Harga satuan</th>
+              <th>Total</th><th>Status</th><th>Catatan</th><th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="transactionRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>Data disimpan di Firebase Firestore.</footer>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
