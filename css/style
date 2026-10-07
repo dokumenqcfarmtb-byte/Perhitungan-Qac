@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3f6fa;
+  color: #202a35;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  padding: 24px max(18px, calc((100% - 1180px) / 2));
+  background: #183153;
+  color: white;
+}
+
+.header h1 {
+  margin: 0 0 6px;
+}
+
+.header p {
+  margin: 0;
+  color: #d8e6f5;
+}
+
+main {
+  max-width: 1180px;
+  margin: 20px auto;
+  padding: 0 14px;
+}
+
+.panel {
+  margin: 16px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #15283b12;
+}
+
+h2 {
+  margin-top: 0;
+  color: #183153;
+}
+
+#status {
+  min-height: 20px;
+  color: #183153;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  padding: 16px;
+  border-radius: 8px;
+  background: #edf4fa;
+}
+
+.card strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.35rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+input, select, textarea, button {
+  min-height: 40px;
+  padding: 9px;
+  border: 1px solid #cbd4de;
+  border-radius: 6px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  border: 0;
+  background: #1769aa;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(.92);
+}
+
+button.secondary {
+  background: #687786;
+}
+
+button.delete {
+  margin-left: 6px;
+  background: #bd3030;
+}
+
+.search {
+  width: min(100%, 420px);
+  margin-bottom: 12px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 1100px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #e0e5ea;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #edf4fa;
+}
+
+.chart-container {
+  position: relative;
+  min-height: 300px;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  color: #687786;
+}
+
+@media (max-width: 600px) {
+  .panel {
+    padding: 14px;
+  }
+}
